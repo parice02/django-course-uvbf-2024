@@ -21,6 +21,5 @@ def index(request):
 
 
 def person_list(request):
-
     context = {"persons": persons}
     return render(request, "person.html", context=context)
