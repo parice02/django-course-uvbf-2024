@@ -23,5 +23,5 @@ app_name = "app"
 
 urlpatterns = [
     path("", index, name="index-view"),
-    path("persons/list", person_list, name="person-list"),
+    path("persons/list/", person_list, name="person-list"),
 ]
