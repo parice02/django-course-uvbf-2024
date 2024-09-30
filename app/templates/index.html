@@ -6,6 +6,13 @@
 <p class="w3-large w3-center">{{days_left}} days left</p>
 
 <p class="w3-large w3-center">
+<p>
   <a href="{% url 'app:person-list' %}">Cliquez-ici</a> pour voir la liste des personnes
+</p>
+<p>
+  <button>
+    <a href="{% url 'app:person-create' %}">Ajouter une personne</a>
+  </button>
+</p>
 </p>
 {% endblock content %}

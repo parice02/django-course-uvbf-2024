@@ -6,7 +6,11 @@
 <p class="w3-large w3-center">
 <ul>
     {% for person in persons %}
-    <li class="w3-jumbo w3-animate-top ">{{person.first_name}} {{person.last_name}}</li>
+    <li class="w3-jumbo w3-animate-top ">
+        <a href="{% url 'app:person-profile' person.pk %}">
+            {{person.first_name}} {{person.last_name}}
+        </a>
+    </li>
     {% endfor %}
 </ul>
 </p>

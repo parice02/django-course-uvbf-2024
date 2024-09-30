@@ -17,11 +17,13 @@ Including another URLconf
 
 from django.urls import path
 
-from app.views import index, person_list
+from app.views import index, person_list, person_profile, person_create
 
 app_name = "app"
 
 urlpatterns = [
     path("", index, name="index-view"),
     path("persons/list/", person_list, name="person-list"),
+    path("persons/<int:pk>/", person_profile, name="person-profile"),
+    path("persons/create/", person_create, name="person-create"),
 ]

@@ -1,4 +1,7 @@
 from django.shortcuts import HttpResponse, render
+from django.http import Http404
+
+from app.forms import PersonForm
 
 # Create your views here.
 
@@ -23,3 +26,28 @@ def index(request):
 def person_list(request):
     context = {"persons": persons}
     return render(request, "person.html", context=context)
+
+
+def person_profile(request, pk):
+    person = [person for person in persons if person["pk"] == pk]
+    if len(person) != 0:
+        person = person[0]
+    else:
+        raise Http404()
+
+    context = {"person": person}
+    return render(request, "profile.html", context=context)
+
+
+def person_create(request):
+    form = PersonForm(data=request.POST or None)
+    context = {}
+
+    if form.is_valid():
+        fields = form.cleaned_data
+        persons.append()
+
+        context.update({"is_valid": True})
+
+    context = {"form": form}
+    return render(request, "form.html", context=context)

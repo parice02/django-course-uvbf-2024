@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="w3-jumbo w3-animate-top">Ajout d'une personne</h1>
+<hr class="w3-border-grey" style="margin:auto;width:40%">
+{% if is_valid %}
+<span>Votre formulaire est valide</span>
+{% endif %}
+<p class="w3-large w3-center">
+
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <div class=" mt-3">
+        <button type="submit" class="btn btn-primary">Soumettre</button>
+    </div>
+</form>
+</p>
+<p>
+    <a href="{% url 'app:person-list' %}">Cliquez-ici</a> pour voir la liste des personnes
+</p>
+{% endblock content %}
