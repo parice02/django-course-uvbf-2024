@@ -14,7 +14,7 @@
     {% for person in persons %}
     <li class="w3-jumbo w3-animate-top ">
         <a href="{% url 'app:person-profile' person.pk %}">
-            {{forloop.counter}}. {{person.first_name}} {{person.last_name}}
+            {{forloop.counter}}. {{person.first_name}} {{person.last_name}} ({{person.age}} ans)
         </a>
     </li>
     {% endfor %}
