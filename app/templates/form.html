@@ -8,7 +8,13 @@
 <span>Votre formulaire est valide</span>
 {% endif %}
 <p class="w3-large w3-center">
-    {% crispy form %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <div class=" mt-3">
+        <button type="submit" class="btn btn-primary">Soumettre</button>
+    </div>
+</form>
 </p>
 <p>
     <a href="{% url 'app:person-list' %}">Cliquez-ici</a> pour voir la liste des personnes
